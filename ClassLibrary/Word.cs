@@ -29,9 +29,9 @@ namespace ClassLibrary
         }
 
         // Переопределение метода DisplayInfo
-        public override void DisplayInfo()
+        public override string DisplayInfo()
         {
-            Console.WriteLine($"Слово: {ToString()}, Количество букв: {CountLetters()}");
+            return ($"Слово: {ToString()}, Количество букв: {CountLetters()}");
         }
     }
 }

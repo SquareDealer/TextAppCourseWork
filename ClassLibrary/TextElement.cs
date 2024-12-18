@@ -12,9 +12,9 @@ namespace ClassLibrary
 
         public abstract override string ToString();
 
-        public virtual void DisplayInfo()
+        public virtual string DisplayInfo()
         {
-            Console.WriteLine($"Элемент текста: {ToString()}, Количество букв: {CountLetters()}");
+            return ($"Элемент текста: {ToString()}, Количество букв: {CountLetters()}");
         }
     }
 }

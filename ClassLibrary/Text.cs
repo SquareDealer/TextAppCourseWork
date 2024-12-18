@@ -19,6 +19,9 @@ public class Text : ITextOperations
         Sentences.Remove(sentence);
     }
 
+    // Получения списка предложений
+    public List<Sentence> getSentencesList() { return Sentences; }
+
     // Реализация метода подсчета гласных
     public int CountVowels(string input)
     {

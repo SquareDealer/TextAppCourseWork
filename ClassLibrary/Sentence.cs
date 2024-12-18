@@ -18,6 +18,19 @@ namespace ClassLibrary
         {
             Words.Remove(word);
         }
+        public void RemoveWordByIndex(int index)
+        {
+            if (index >= 0 && index < Words.Count)
+            {
+                Words.RemoveAt(index);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за пределы списка слов.");
+            }
+        }
+
+        public List<Word> getWordsList() { return Words; }
 
         // Реализация абстрактного метода подсчета букв
         public override int CountLetters()
@@ -32,9 +45,9 @@ namespace ClassLibrary
         }
 
         // Переопределение метода DisplayInfo
-        public override void DisplayInfo()
+        public override string DisplayInfo()
         {
-            Console.WriteLine($"Предложение: {ToString()}, Количество букв: {CountLetters()}");
+            return ($"Предложение: {ToString()}, Количество букв: {CountLetters()}");
         }
     }
 }

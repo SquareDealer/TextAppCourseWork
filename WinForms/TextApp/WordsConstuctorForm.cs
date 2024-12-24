@@ -131,5 +131,15 @@ namespace TextApp
         {
 
         }
+
+        private void WordsConstuctorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Проверяем причину закрытия формы
+            if (this.DialogResult != DialogResult.OK && e.CloseReason == CloseReason.UserClosing)
+            {
+                // Устанавливаем значение DialogResult как OK (или другой нужный результат)
+                this.DialogResult = DialogResult.OK;
+            }
+        }
     }
 }

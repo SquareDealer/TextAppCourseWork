@@ -7,6 +7,15 @@ public class Text : ITextOperations
 {
     private List<Sentence> Sentences { get; set; } = new List<Sentence>();
 
+    // Конструктор по умолчанию
+    public Text() { }
+
+    // Конструктор для инициализации списка предложений
+    public Text(IEnumerable<Sentence> sentences)
+    {
+        Sentences = new List<Sentence>(sentences);
+    }
+
     // Добавление предложения в текст
     public void AddSentence(Sentence sentence)
     {

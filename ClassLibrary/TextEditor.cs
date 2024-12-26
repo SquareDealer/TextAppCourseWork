@@ -14,20 +14,42 @@ namespace ClassLibrary
         public delegate void TextModifiedEventHandler(string message);
 
         // События
-        public event TextModifiedEventHandler? SentenceAdded;
         public event TextModifiedEventHandler? SentenceRemoved;
+        public event TextModifiedEventHandler? TextFormatted;
 
         public TextEditor(Text text)
         {
             ManagedText = text;
         }
 
-        // Метод для добавления предложения
-        public void AddSentence(Sentence sentence)
+        public void FormatText()
         {
-            ManagedText.AddSentence(sentence);
-            SentenceAdded?.Invoke($"Предложение добавлено: \"{sentence}\"");
+            // Получаем список предложений из объекта ManagedText
+            var sentencesList = ManagedText.getSentencesList();
+
+            if (sentencesList == null || sentencesList.Count == 0)
+            {
+                throw new InvalidOperationException("Текст пуст или не содержит предложений.");
+            }
+
+            foreach (var sentence in sentencesList)
+            {
+                // Получаем список слов в предложении
+                var wordsList = sentence.getWordsList();
+
+                // Проверяем, есть ли слова в предложении
+                if (wordsList != null && wordsList.Count > 0)
+                {
+                    // Делаем первую букву первого слова заглавной
+                    wordsList[0].CapitalizeFirstLetter();
+                }
+            }
+
+            // Уведомляем о завершении форматирования
+            TextFormatted?.Invoke("Текст успешно отформатирован: первое слово в каждом предложении стало заглавным.");
         }
+
+        public List<Sentence> getSentencesList() { return ManagedText.getSentencesList(); }
 
         // Метод для удаления предложения
         public void RemoveSentence(Sentence sentence)
@@ -36,5 +58,4 @@ namespace ClassLibrary
             SentenceRemoved?.Invoke($"Предложение удалено: \"{sentence}\"");
         }
     }
-
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using ClassLibrary;
+using System.Text;
 
 public class Text : ITextOperations
 {
@@ -37,12 +38,6 @@ public class Text : ITextOperations
         return input.Count(c => "AEIOUaeiouАЕЁИОУЫЭЮЯаеёиоуыэюя".Contains(c));
     }
 
-    // Реализация метода подсчета согласных
-    public int CountConsonants(string input)
-    {
-        return input.Count(c => char.IsLetter(c) && !"AEIOUaeiouАЕЁИОУЫЭЮЯаеёиоуыэюя".Contains(c));
-    }
-
     // Реализация метода подсчета всех букв
     public int CountLetters(string input)
     {
@@ -65,5 +60,10 @@ public class Text : ITextOperations
     public override string ToString()
     {
         return string.Join(" ", Sentences.Select(s => s.ToString()));
+    }
+
+    public void SearchByString(string input, string content, StringBuilder result)
+    {
+
     }
 }

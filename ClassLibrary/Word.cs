@@ -27,6 +27,13 @@ namespace ClassLibrary
         {
             return Value;
         }
+        public void CapitalizeFirstLetter()
+        {
+            if (!string.IsNullOrEmpty(Value))
+            {
+                Value = char.ToUpper(Value[0]) + Value.Substring(1);
+            }
+        }
 
         // Переопределение метода DisplayInfo
         public override string DisplayInfo()

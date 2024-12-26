@@ -33,11 +33,15 @@
             richTextBox1 = new RichTextBox();
             saveTextBtn = new Button();
             openTextBtn = new Button();
+            openTextAnalyser = new Button();
+            button3 = new Button();
+            label2 = new Label();
+            button4 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(56, 48);
+            button1.Location = new Point(46, 232);
             button1.Name = "button1";
             button1.Size = new Size(206, 54);
             button1.TabIndex = 0;
@@ -48,7 +52,7 @@
             // createTextObject
             // 
             createTextObject.BackgroundImageLayout = ImageLayout.None;
-            createTextObject.Location = new Point(56, 117);
+            createTextObject.Location = new Point(46, 48);
             createTextObject.Name = "createTextObject";
             createTextObject.Size = new Size(206, 54);
             createTextObject.TabIndex = 1;
@@ -58,37 +62,82 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(376, 48);
+            richTextBox1.Location = new Point(370, 48);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(585, 340);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // saveTextBtn
             // 
-            saveTextBtn.Location = new Point(56, 190);
+            saveTextBtn.Location = new Point(370, 407);
             saveTextBtn.Name = "saveTextBtn";
-            saveTextBtn.Size = new Size(99, 49);
+            saveTextBtn.Size = new Size(170, 49);
             saveTextBtn.TabIndex = 3;
             saveTextBtn.Text = "Сохранить текст в файл";
             saveTextBtn.UseVisualStyleBackColor = true;
-            saveTextBtn.Click += saveTextBtn_Click;
+            saveTextBtn.Click += btnSaveFile_Click;
             // 
             // openTextBtn
             // 
-            openTextBtn.Location = new Point(163, 190);
+            openTextBtn.Location = new Point(546, 407);
             openTextBtn.Name = "openTextBtn";
-            openTextBtn.Size = new Size(99, 49);
+            openTextBtn.Size = new Size(170, 49);
             openTextBtn.TabIndex = 4;
             openTextBtn.Text = "Загрузить текст из файла";
             openTextBtn.UseVisualStyleBackColor = true;
-            openTextBtn.Click += button3_Click;
+            openTextBtn.Click += btnLoadFile_Click;
+            // 
+            // openTextAnalyser
+            // 
+            openTextAnalyser.Location = new Point(46, 175);
+            openTextAnalyser.Name = "openTextAnalyser";
+            openTextAnalyser.Size = new Size(206, 51);
+            openTextAnalyser.TabIndex = 5;
+            openTextAnalyser.Text = "Открыть анализатор текста";
+            openTextAnalyser.UseVisualStyleBackColor = true;
+            openTextAnalyser.Click += openTextAnalyser_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(824, 407);
+            button3.Name = "button3";
+            button3.Size = new Size(131, 49);
+            button3.TabIndex = 7;
+            button3.Text = "Очистить";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.Location = new Point(46, 151);
+            label2.Name = "label2";
+            label2.Size = new Size(214, 21);
+            label2.TabIndex = 10;
+            label2.Text = "Модули работы с текстом";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(46, 292);
+            button4.Name = "button4";
+            button4.Size = new Size(206, 53);
+            button4.TabIndex = 12;
+            button4.Text = "Открыть редактор текста";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 657);
+            ClientSize = new Size(1055, 571);
+            Controls.Add(button4);
+            Controls.Add(label2);
+            Controls.Add(button3);
+            Controls.Add(openTextAnalyser);
             Controls.Add(openTextBtn);
             Controls.Add(saveTextBtn);
             Controls.Add(richTextBox1);
@@ -98,6 +147,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -107,5 +157,9 @@
         private RichTextBox richTextBox1;
         private Button saveTextBtn;
         private Button openTextBtn;
+        private Button openTextAnalyser;
+        private Button button3;
+        private Label label2;
+        private Button button4;
     }
 }

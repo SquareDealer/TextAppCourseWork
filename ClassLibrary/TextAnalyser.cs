@@ -23,6 +23,21 @@ namespace ClassLibrary
             File.WriteAllText(filePath, content);
         }
 
+        public void SearchByString(string input, string content, StringBuilder result)
+        {
+            // Поиск всех вхождений строки input в content
+            int count = 0;
+            int index = 0;
+            while ((index = content.IndexOf(input, index, StringComparison.OrdinalIgnoreCase)) != -1)
+            {
+                count++;
+                index += input.Length;
+            }
+
+            // Добавление результата в StringBuilder
+            result.AppendLine($"Количество вхождений '{input}': {count}");
+        }
+
         public string ReadFromFile(string filePath)
         {
             return File.ReadAllText(filePath);
@@ -33,11 +48,21 @@ namespace ClassLibrary
             return input.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
         }
 
-        public void AnalyzeText(ITextOperations textOperations, string textContent)
+        public string AnalyzeText(ITextOperations textOperations, string textContent, bool searchModeEnabled, string searchString = "")
         {
-            Console.WriteLine($"Анализируемый текст: {textContent}");
-            Console.WriteLine($"Гласных: {textOperations.CountVowels(textContent)}");
-            Console.WriteLine($"Всего букв: {textOperations.CountLetters(textContent)}");
+            StringBuilder result = new StringBuilder();
+
+            result.AppendLine($"Анализируемый текст: {textContent}");
+            result.AppendLine($"Гласных: {textOperations.CountVowels(textContent)}");
+            result.AppendLine($"Всего букв: {textOperations.CountLetters(textContent)}");
+
+            if (searchModeEnabled && !string.IsNullOrEmpty(searchString))
+            {
+                // Если включен режим поиска, вызываем метод для поиска
+                textOperations.SearchByString(searchString, textContent, result);
+            }
+
+            return result.ToString();
         }
     }
 }

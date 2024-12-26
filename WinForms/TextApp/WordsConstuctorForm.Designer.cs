@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            autoSpaceCBox = new CheckBox();
             indexPickerComboBox = new ComboBox();
             deleteWordByIndexBtn = new Button();
             addSentenceTextBox = new TextBox();
@@ -40,20 +39,10 @@
             label2 = new Label();
             SuspendLayout();
             // 
-            // autoSpaceCBox
-            // 
-            autoSpaceCBox.AutoSize = true;
-            autoSpaceCBox.Location = new Point(305, 33);
-            autoSpaceCBox.Name = "autoSpaceCBox";
-            autoSpaceCBox.Size = new Size(93, 19);
-            autoSpaceCBox.TabIndex = 11;
-            autoSpaceCBox.Text = "Автопробел";
-            autoSpaceCBox.UseVisualStyleBackColor = true;
-            // 
             // indexPickerComboBox
             // 
             indexPickerComboBox.FormattingEnabled = true;
-            indexPickerComboBox.Location = new Point(25, 145);
+            indexPickerComboBox.Location = new Point(27, 180);
             indexPickerComboBox.Name = "indexPickerComboBox";
             indexPickerComboBox.Size = new Size(258, 23);
             indexPickerComboBox.TabIndex = 10;
@@ -61,7 +50,7 @@
             // 
             // deleteWordByIndexBtn
             // 
-            deleteWordByIndexBtn.Location = new Point(25, 111);
+            deleteWordByIndexBtn.Location = new Point(27, 146);
             deleteWordByIndexBtn.Name = "deleteWordByIndexBtn";
             deleteWordByIndexBtn.Size = new Size(258, 28);
             deleteWordByIndexBtn.TabIndex = 9;
@@ -71,14 +60,14 @@
             // 
             // addSentenceTextBox
             // 
-            addSentenceTextBox.Location = new Point(25, 62);
+            addSentenceTextBox.Location = new Point(27, 97);
             addSentenceTextBox.Name = "addSentenceTextBox";
             addSentenceTextBox.Size = new Size(258, 23);
             addSentenceTextBox.TabIndex = 8;
             // 
             // addWordBtn
             // 
-            addWordBtn.Location = new Point(25, 27);
+            addWordBtn.Location = new Point(27, 62);
             addWordBtn.Name = "addWordBtn";
             addWordBtn.Size = new Size(258, 29);
             addWordBtn.TabIndex = 7;
@@ -97,7 +86,7 @@
             // 
             // createSentenceBtn
             // 
-            createSentenceBtn.Location = new Point(25, 191);
+            createSentenceBtn.Location = new Point(27, 226);
             createSentenceBtn.Name = "createSentenceBtn";
             createSentenceBtn.Size = new Size(258, 50);
             createSentenceBtn.TabIndex = 12;
@@ -141,7 +130,6 @@
             Controls.Add(label1);
             Controls.Add(richTextBox2);
             Controls.Add(createSentenceBtn);
-            Controls.Add(autoSpaceCBox);
             Controls.Add(indexPickerComboBox);
             Controls.Add(deleteWordByIndexBtn);
             Controls.Add(addSentenceTextBox);
@@ -154,8 +142,6 @@
         }
 
         #endregion
-
-        private CheckBox autoSpaceCBox;
         private ComboBox indexPickerComboBox;
         private Button deleteWordByIndexBtn;
         private TextBox addSentenceTextBox;

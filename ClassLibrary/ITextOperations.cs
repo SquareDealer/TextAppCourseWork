@@ -19,5 +19,8 @@ namespace ClassLibrary
 
         // Загрузка текста из файла
         string ReadFromFile(string filePath);
+
+        // Поиск строки в тексте
+        public void SearchByString(string input, string content, StringBuilder result);
     }
 }

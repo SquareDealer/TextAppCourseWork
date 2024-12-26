@@ -22,21 +22,14 @@ namespace TextApp
 
         private void addWordBtn_Click(object sender, EventArgs e)
         {
-            string wordString = string.Empty;
 
-            if (autoSpaceCBox.Checked)
-            {
-                wordString = addSentenceTextBox.Text + " ";
-            }
-            else
-            {
-                wordString = addSentenceTextBox.Text;
-            }
+            string wordString = addSentenceTextBox.Text;
+   
 
             Word word = new Word(wordString);
             newSentence.AddWord(word);
-            sentenceList.Add(newSentence);
-            richTextBox1.Text += word.Value.ToString();
+            //richTextBox1.Text += word.Value.ToString();
+            UpdateRichTextBox();
             addSentenceTextBox.Clear();
             updateIndexPickerComboBox();
         }
@@ -58,7 +51,7 @@ namespace TextApp
             List<Word> wordsList = newSentence.getWordsList();
             foreach (Word word in wordsList)
             {
-                richTextBox1.AppendText(word.Value);
+                richTextBox1.AppendText(word.Value + " ");
             }
 
         }
@@ -140,6 +133,11 @@ namespace TextApp
                 // Устанавливаем значение DialogResult как OK (или другой нужный результат)
                 this.DialogResult = DialogResult.OK;
             }
+        }
+
+        private void autoSpaceCBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

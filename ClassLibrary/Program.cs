@@ -10,15 +10,7 @@ namespace ClassLibrary
     {
         static void Main(string[] args)
         {
-            Text text = new Text();
 
-            TextAnalyzer analyzer = new TextAnalyzer();
-            analyzer.AnalyzeText(text, text.ToString());
-
-            string filePath = "text.txt";
-            text.SaveToFile(filePath, text.ToString());
-            string loadedText = analyzer.ReadFromFile(filePath);
-            analyzer.AnalyzeText(analyzer, loadedText);
         }
     }
 }
